@@ -1,0 +1,85 @@
+{
+  "name": "@corsair-dev/mcp",
+  "version": "0.1.27",
+  "description": "MCP server and framework adapters for Corsair. Expose 200+ integrations to any agent framework (Mastra, OpenAI, Vercel AI, Claude) as tools.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "tools",
+    "tool-calling",
+    "mastra",
+    "openai",
+    "vercel-ai",
+    "integrations",
+    "corsair"
+  ],
+  "author": "Corsair (https://corsair.dev)",
+  "license": "Apache-2.0",
+  "homepage": "https://corsair.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corsairdev/corsair.git",
+    "directory": "packages/mcp"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "dev-source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup && tsc -p tsconfig.build.json",
+    "build:watch": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/mcp": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "corsair": "workspace:*",
+    "express": "^4.21.0",
+    "zod": "^4.1.13"
+  },
+  "peerDependencies": {
+    "@anthropic-ai/claude-agent-sdk": ">=0.2.0",
+    "@anthropic-ai/sdk": ">=0.78.0",
+    "@mastra/core": ">=1.0.0",
+    "@openai/agents": ">=0.5.0",
+    "openai": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@anthropic-ai/claude-agent-sdk": {
+      "optional": true
+    },
+    "@anthropic-ai/sdk": {
+      "optional": true
+    },
+    "@mastra/core": {
+      "optional": true
+    },
+    "@openai/agents": {
+      "optional": true
+    },
+    "openai": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.8.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
